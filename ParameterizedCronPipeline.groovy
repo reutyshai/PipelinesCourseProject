@@ -13,10 +13,7 @@ pipeline {
                 script {
                     properties([
                             pipelineTriggers([
-                                    parameterizedCron('''
-                                        TZ=Asia/Jerusalem
-                                        07 22 * * *%NAME=Gila;DEBUG_MODE=true
-                                        08 22 * * *%ENVIRONMENT=PROD;DEBUG_MODE=true'''
+                                    parameterizedCron("TZ=Asia/Jerusalem\n07 22 * * *%NAME=Gila;DEBUG_MODE=true\n08 22 * * *%ENVIRONMENT=PROD;DEBUG_MODE=true"
                                     )
                             ])
                     ])
