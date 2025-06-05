@@ -1,6 +1,6 @@
 @Library("shared-library") _
 pipeline {
-    agent any
+    agent ('verisoft-2')
     parameters {
         string(name: 'NAME', defaultValue: 'Reut', description: 'Enter your name')
         booleanParam(name: 'DEBUG_MODE', defaultValue: false, description: 'Enable debug mode?')
