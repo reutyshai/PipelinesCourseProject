@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent {label 'verisoft-2'}
 
     parameters {
         string(name: 'NAME', defaultValue: 'Reut', description: 'Enter your name')

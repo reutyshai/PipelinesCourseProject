@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent {label 'verisoft-2'}
 
     parameters {
         string(name: 'REPO_URL', defaultValue: 'https://github.com/reutyshai/AutomationFinalProject', description: 'Git repository URL')
