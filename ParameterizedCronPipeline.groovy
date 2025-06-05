@@ -14,8 +14,8 @@ pipeline {
                             pipelineTriggers([
                                     parameterizedCron(['''
                                         TZ=Asia/Jerusalem
-                                        05 22 * * *%NAME=Gila;DEBUG_MODE=true
-                                        06 22 * * *%ENVIRONMENT=PROD;DEBUG_MODE=true''',
+                                        07 22 * * *%NAME=Gila;DEBUG_MODE=true
+                                        08 22 * * *%ENVIRONMENT=PROD;DEBUG_MODE=true''',
                                     ])
                             ])
                     ])
