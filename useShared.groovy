@@ -13,7 +13,7 @@ pipeline {
         COMBINED = "${params.NAME}-${params.ENVIRONMENT}"
     }
     stages {
-        stage('Print Hello') {
+        stage('Functions') {
             steps {
                 script {
                     firstFunction()
@@ -22,6 +22,7 @@ pipeline {
                     printVariables.printParams()
                     printVariables.printEnv()
                     printVariables.jenkinsEnvVariables()
+                    printVariables.buildVariable()
                 }
             }
         }
