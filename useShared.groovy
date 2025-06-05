@@ -21,6 +21,7 @@ pipeline {
                     twoFuncs.bye()
                     printVariables.printParams()
                     printVariables.printEnv()
+                    printVariables.jenkinsEnvVariables()
                 }
             }
         }
