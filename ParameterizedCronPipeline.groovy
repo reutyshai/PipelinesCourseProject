@@ -2,20 +2,24 @@
 pipeline {
     agent { label 'verisoft-2' }
 
-
+    parameters {
+        string(name: 'NAME', defaultValue: 'Reut', description: 'Enter your name')
+        booleanParam(name: 'DEBUG_MODE', defaultValue: false, description: 'Enable debug mode?')
+        choice(name: 'ENVIRONMENT', choices: ['DEV', 'QA', 'PROD'], description: 'Choose environment')}
     stages {
         stage('Functions') {
             steps {
                 script {
                     properties([
                             pipelineTriggers([
-                                    parameterizedCron([
-                                            [cron: 'TZ=Asia/Jerusalem\n02 22 * * *', parameters: [string(name: 'ENV', value: 'dev')]],
-                                            [cron: 'TZ=Asia/Jerusalem\n03 22 * * *', parameters: [string(name: 'ENV', value: 'prod')]]
+                                    parameterizedCron(['''
+                                        TZ=Asia/Jerusalem
+                                        05 22 * * *%NAME=Gila;DEBUG_MODE=true
+                                        06 22 * * *%ENVIRONMENT=PROD;DEBUG_MODE=true''',
                                     ])
                             ])
                     ])
-                    echo "Start Time: ${currentBuild.startTimeInMillis}"
+                    echo "params: ${params}"
                 }
             }
         }
