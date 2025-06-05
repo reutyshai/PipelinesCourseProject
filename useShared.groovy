@@ -5,9 +5,11 @@ pipeline {
     stages {
         stage('Print Hello') {
             steps {
-                firstFunction()
-                twoFuncs.hello()
-                twoFuncs.bye()
+                script {
+                    firstFunction()
+                    twoFuncs.hello()
+                    twoFuncs.bye()
+                }
             }
         }
     }
